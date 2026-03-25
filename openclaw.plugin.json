@@ -1,0 +1,15 @@
+{
+  "id": "guardian",
+  "name": "Guardian",
+  "version": "0.1.0",
+  "description": "Security policy engine + real-time monitoring + anomaly detection for OpenClaw agents. Content filtering, rate limiting, DLP, cost tracking, and immutable audit logging.",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "dbPath": {"type": "string", "default": "./guardian.db", "description": "Path to Guardian SQLite database."},
+      "defaultAllow": {"type": "boolean", "default": false, "description": "Default policy decision when no rules match."},
+      "policyPath": {"type": "string", "description": "Path to YAML/JSON policy file to load on startup."}
+    }
+  }
+}

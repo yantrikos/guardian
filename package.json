@@ -1,0 +1,26 @@
+{
+  "name": "guardian",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Security policy engine + monitoring + anomaly detection for OpenClaw agents",
+  "author": "Yantrikos",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist", "openclaw.plugin.json", "guardian_engine", "hooks", "policies", "README.md", "LICENSE"],
+  "repository": {"type": "git", "url": "git+https://github.com/yantrikos/guardian.git"},
+  "homepage": "https://github.com/yantrikos/guardian#readme",
+  "keywords": ["openclaw", "plugin", "security", "policy", "monitoring", "anomaly-detection", "audit", "dlp"],
+  "openclaw": {
+    "id": "guardian",
+    "build": {"openclawVersion": "2026.3.23", "pluginSdkVersion": "2026.3.23"},
+    "compat": {"pluginApi": ">=1.0.0", "builtWithOpenClawVersion": "2026.3.23", "pluginSdkVersion": "2026.3.23", "minGatewayVersion": "2026.3.23"},
+    "extensions": ["./dist/index.js"]
+  },
+  "engines": {"node": ">=22"},
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --platform=node --format=esm --outdir=dist --external:@openclaw/*",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {"esbuild": "^0.25.0", "typescript": "^5.7.0"}
+}
